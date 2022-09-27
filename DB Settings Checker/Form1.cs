@@ -56,17 +56,24 @@ namespace DB_Settings_Checker
             //Импорт функции WritePrivateProfileString (для записи значений) из библиотеки kernel32.dll
             [DllImport("kernel32.dll", EntryPoint = "WritePrivateProfileString")]
             private static extern int WritePrivateString(string section, string key, string str, string path);
+
+
+
         }
-        /*
-        //Создание объекта, для работы с файлом
-        INIManager manager = new INIManager("C:\\my.ini");
 
-        //Получить значение по ключу name из секции main
-        string name = manager.GetPrivateString("main", "name");
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //Создание объекта, для работы с файлом
+            INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini");
 
-        //Записать значение по ключу age в секции main
-        manager.WritePrivateString("main", "age", "21");
-
-        */
-    }
+            //Получить значение по ключу name из секции main
+            string port = manager.GetPrivateString("mysqld", "port");
+            label14.Text = port;
+            /*
+            //Записать значение по ключу age в секции main
+            manager.WritePrivateString("main", "age", "21");
+            */
+        }
+    } 
+        
 }
