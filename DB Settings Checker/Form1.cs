@@ -17,63 +17,58 @@ namespace DB_Settings_Checker
         }
         public class INIManager
         {
-            //Конструктор, принимающий путь к INI-файлу
-            public INIManager(string aPath)
+            public INIManager(string aPath)     //конструктор, принимающий путь к INI-файлу
             {
-                path = aPath;
+                path = aPath;           
             }
 
-            //Конструктор без аргументов (путь к INI-файлу нужно будет задать отдельно)
             public INIManager() : this("") { }
 
-            //Возвращает значение из INI-файла (по указанным секции и ключу) 
+            //возвращает значение из INI-файла (по указанным секции и ключу) 
             public string GetPrivateString(string aSection, string aKey)
             {
-                //Для получения значения
+                //для получения значения
                 StringBuilder buffer = new StringBuilder(SIZE);
 
                 //Получить значение в buffer
                 GetPrivateString(aSection, aKey, null, buffer, SIZE, path);
 
-                //Вернуть полученное значение
                 return buffer.ToString();
             }
 
-            //Пишет значение в INI-файл (по указанным секции и ключу) 
+            //пишет значение в INI-файл (по указанным секции и ключу) 
             public void WritePrivateString(string aSection, string aKey, string aValue)
             {
-                //Записать значение в INI-файл
                 WritePrivateString(aSection, aKey, aValue, path);
             }
 
-            //Возвращает или устанавливает путь к INI файлу
+            //возвращает или устанавливает путь к INI файлу
             public string Path { get { return path; } set { path = value; } }
 
-            //Поля класса
+            //поля класса
             private const int SIZE = 1024; //Максимальный размер (для чтения значения из файла)
             private string path = null; //Для хранения пути к INI-файлу
 
-            //Импорт функции GetPrivateProfileString (для чтения значений) из библиотеки kernel32.dll
+            //импорт функции GetPrivateProfileString (для чтения значений) 
             [DllImport("kernel32.dll", EntryPoint = "GetPrivateProfileString")]
             private static extern int GetPrivateString(string section, string key, string def, StringBuilder buffer, int size, string path);
 
-            //Импорт функции WritePrivateProfileString (для записи значений) из библиотеки kernel32.dll
+            //импорт функции WritePrivateProfileString (для записи значений) 
             [DllImport("kernel32.dll", EntryPoint = "WritePrivateProfileString")]
             private static extern int WritePrivateString(string section, string key, string str, string path);
-
-
 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Создание объекта, для работы с файлом
             INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini");
 
-            //Получить значение по ключу name из секции main
+            //получение значения по ключу port из секции mysqld
             string port = manager.GetPrivateString("mysqld", "port");
-            label14.Text = port;
-                if (label14.Text == "3360")
+            
+            label14.Text = port; //для отображения текущего установленного значение
+            //красный цвет - небезопасные настройки, зеленый - безопасные
+                if (label14.Text == "3306")
                 {
                     label14.ForeColor = Color.Red;
                 }
@@ -81,8 +76,8 @@ namespace DB_Settings_Checker
                 {
                     label14.ForeColor = Color.Green;
                 }
-            //
-            string bind_address = manager.GetPrivateString("mysqld", "bind-address");
+            
+            string bind_address = manager.GetPrivateString("mysqld", "bind-address"); //разрешенные IP-адреса
             label15.Text = bind_address;
                 if (bind_address.Length == 0) 
                 {
@@ -97,7 +92,7 @@ namespace DB_Settings_Checker
                 label15.ForeColor = Color.Green;
             }
 
-            string max_connections = manager.GetPrivateString("mysqld", "max_connections");
+            string max_connections = manager.GetPrivateString("mysqld", "max_connections"); //количество одновременных подключений
             label17.Text = max_connections;
             string max_conn = label17.Text;
             if (int.Parse(max_conn) > 20)
@@ -110,7 +105,7 @@ namespace DB_Settings_Checker
             }
 
 
-            string connect_timeout = manager.GetPrivateString("mysqld", "connect_timeout");
+            string connect_timeout = manager.GetPrivateString("mysqld", "connect_timeout"); //время для аутентификации
             label16.Text = connect_timeout;
             if (connect_timeout.Length == 0)
             {
@@ -126,7 +121,7 @@ namespace DB_Settings_Checker
                 label16.ForeColor = Color.Green;
             }
 
-            string local_infile = manager.GetPrivateString("mysqld", "local-infile");
+            string local_infile = manager.GetPrivateString("mysqld", "local-infile"); //чтение файлов
             label21.Text = local_infile;
 
             
@@ -154,7 +149,7 @@ namespace DB_Settings_Checker
 
             
 
-            string symbolic_links = manager.GetPrivateString("mysqld", "symbolic_links");
+            string symbolic_links = manager.GetPrivateString("mysqld", "symbolic_links"); // символические ссылки
             label20.Text = symbolic_links;
             if (symbolic_links == "1")
             {
@@ -175,14 +170,7 @@ namespace DB_Settings_Checker
             }
             if (symbolic_links.Length == 1) 
             { label20.Text = "Выключено"; }
-
-            
-            
-
-            /*
-            //Записать значение по ключу age в секции main
-            manager.WritePrivateString("main", "age", "21");
-            */
+          
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -193,7 +181,8 @@ namespace DB_Settings_Checker
         private void button2_Click(object sender, EventArgs e)
         {
             INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini");
-            if (string.IsNullOrEmpty(textBox1.Text) == false)
+
+            if (string.IsNullOrEmpty(textBox1.Text) == false) //если поле не пустое, в файл my.ini записывается новое значение
             {
                 manager.WritePrivateString("mysqld", "port", textBox1.Text);
             }
@@ -218,7 +207,7 @@ namespace DB_Settings_Checker
                 manager.WritePrivateString("mysqld", "local-infile", textBox6.Text);
             }
            
-            
+            //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
             ServiceController ser = new ServiceController("MYSQL80");
             ser.Stop();
             Thread.Sleep(10000);
@@ -227,6 +216,7 @@ namespace DB_Settings_Checker
 
 
         }
+
 
     } 
         
