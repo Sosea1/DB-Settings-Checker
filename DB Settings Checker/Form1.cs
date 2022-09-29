@@ -73,14 +73,42 @@ namespace DB_Settings_Checker
             //Получить значение по ключу name из секции main
             string port = manager.GetPrivateString("mysqld", "port");
             label14.Text = port;
+                if (label14.Text == "3360")
+                {
+                    label14.ForeColor = Color.Red;
+                }
+                else
+                {
+                    label14.ForeColor = Color.Green;
+                }
             //
             string bind_address = manager.GetPrivateString("mysqld", "bind-address");
             label15.Text = bind_address;
-            if (bind_address.Length == 0) {
-                label15.Text = "Разрешены все адреса";
+                if (bind_address.Length == 0) 
+                {
+                    label15.Text = "Разрешены все адреса";
+                }
+            if (label15.Text == "Разрешены все адреса")
+            {
+                label15.ForeColor = Color.Red;
             }
+            else
+            {
+                label15.ForeColor = Color.Green;
+            }
+
             string max_connections = manager.GetPrivateString("mysqld", "max_connections");
             label17.Text = max_connections;
+            string max_conn = label17.Text;
+            if (int.Parse(max_conn) > 20)
+            {
+                label17.ForeColor = Color.Red;
+            }
+            else
+            {
+                label17.ForeColor = Color.Green;
+            }
+
 
             string connect_timeout = manager.GetPrivateString("mysqld", "connect_timeout");
             label16.Text = connect_timeout;
@@ -88,8 +116,29 @@ namespace DB_Settings_Checker
             {
                 label16.Text = "10";
             }
+            string conn_time = label16.Text;
+            if (int.Parse(conn_time) > 10)
+            {
+                label16.ForeColor = Color.Red;
+            }
+            else
+            {
+                label16.ForeColor = Color.Green;
+            }
+
             string local_infile = manager.GetPrivateString("mysqld", "local-infile");
             label21.Text = local_infile;
+
+            
+            if (int.Parse(local_infile) == 1)
+            {
+                label21.ForeColor = Color.Red;
+            }
+            else
+            {
+                label21.ForeColor = Color.Green;
+            }
+
             if (local_infile.Length == 0)
             {
                 label21.Text = "Включено";
@@ -103,13 +152,32 @@ namespace DB_Settings_Checker
                 label21.Text = "Включено";
             }
 
+            
+
             string symbolic_links = manager.GetPrivateString("mysqld", "symbolic_links");
             label20.Text = symbolic_links;
+            if (symbolic_links == "1")
+            {
+                label20.ForeColor = Color.Red;
+            }
+            if (string.IsNullOrEmpty(symbolic_links) == true)
+            {
+                label20.ForeColor = Color.Red;
+            }
+
+            else
+            {
+                label20.ForeColor = Color.Green;
+            }
             if (symbolic_links.Length == 0)
             {
                 label20.Text = "Включено";
             }
+            if (symbolic_links.Length == 1) 
+            { label20.Text = "Выключено"; }
 
+            
+            
 
             /*
             //Записать значение по ключу age в секции main
