@@ -147,36 +147,33 @@ namespace DB_Settings_Checker
                 label21.Text = "Включено";
             }
 
-            
+
 
             string symbolic_links = manager.GetPrivateString("mysqld", "symbolic_links"); // символические ссылки
             label20.Text = symbolic_links;
-            if (symbolic_links == "1")
-            {
-                label20.ForeColor = Color.Red;
-            }
-            if (string.IsNullOrEmpty(symbolic_links) == true)
-            {
-                label20.ForeColor = Color.Red;
-            }
 
+            if (int.Parse(symbolic_links) == 1)
+            {
+                label20.ForeColor = Color.Red;
+            }
             else
             {
                 label20.ForeColor = Color.Green;
             }
+
             if (symbolic_links.Length == 0)
             {
                 label20.Text = "Включено";
             }
-            if (symbolic_links.Length == 1) 
-            { label20.Text = "Выключено"; }
-          
+            if (int.Parse(symbolic_links) == 1)
+            { label20.Text = "Включено"; }
+            if (int.Parse(symbolic_links) == 0)
+            {
+                label20.Text = "Выключено";
+            }
+
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -192,7 +189,7 @@ namespace DB_Settings_Checker
             }
             if (string.IsNullOrEmpty(textBox3.Text) == false)
             {
-                manager.WritePrivateString("mysqld", "max-connections", textBox3.Text);
+                manager.WritePrivateString("mysqld", "max_connections", textBox3.Text);
             }
             if (string.IsNullOrEmpty(textBox4.Text) == false)
             {
@@ -216,11 +213,10 @@ namespace DB_Settings_Checker
             Thread.Sleep(5000);
             
 
-            //получение значения по ключу port из секции mysqld
+            //повторение кода, чтобы после нажатия кнопки информация обновлялась
             string port = manager.GetPrivateString("mysqld", "port");
 
-            label14.Text = port; //для отображения текущего установленного значение
-                                 //красный цвет - небезопасные настройки, зеленый - безопасные
+            label14.Text = port; 
             if (label14.Text == "3306")
             {
                 label14.ForeColor = Color.Red;
@@ -230,7 +226,7 @@ namespace DB_Settings_Checker
                 label14.ForeColor = Color.Green;
             }
 
-            string bind_address = manager.GetPrivateString("mysqld", "bind-address"); //разрешенные IP-адреса
+            string bind_address = manager.GetPrivateString("mysqld", "bind-address"); 
             label15.Text = bind_address;
             if (bind_address.Length == 0)
             {
@@ -245,7 +241,7 @@ namespace DB_Settings_Checker
                 label15.ForeColor = Color.Green;
             }
 
-            string max_connections = manager.GetPrivateString("mysqld", "max_connections"); //количество одновременных подключений
+            string max_connections = manager.GetPrivateString("mysqld", "max_connections"); 
             label17.Text = max_connections;
             string max_conn = label17.Text;
             if (int.Parse(max_conn) > 20)
@@ -258,7 +254,7 @@ namespace DB_Settings_Checker
             }
 
 
-            string connect_timeout = manager.GetPrivateString("mysqld", "connect_timeout"); //время для аутентификации
+            string connect_timeout = manager.GetPrivateString("mysqld", "connect_timeout"); 
             label16.Text = connect_timeout;
             if (connect_timeout.Length == 0)
             {
@@ -274,7 +270,7 @@ namespace DB_Settings_Checker
                 label16.ForeColor = Color.Green;
             }
 
-            string local_infile = manager.GetPrivateString("mysqld", "local-infile"); //чтение файлов
+            string local_infile = manager.GetPrivateString("mysqld", "local-infile"); 
             label21.Text = local_infile;
 
 
@@ -302,7 +298,7 @@ namespace DB_Settings_Checker
 
 
 
-            string symbolic_links = manager.GetPrivateString("mysqld", "symbolic_links"); // символические ссылки
+            string symbolic_links = manager.GetPrivateString("mysqld", "symbolic_links");
             label20.Text = symbolic_links;
             if (symbolic_links == "1")
             {

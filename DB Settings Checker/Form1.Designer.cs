@@ -135,7 +135,6 @@
             this.label5.Size = new System.Drawing.Size(229, 21);
             this.label5.TabIndex = 8;
             this.label5.Text = "Чтение файлов (1-вкл, 0-выкл)";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
