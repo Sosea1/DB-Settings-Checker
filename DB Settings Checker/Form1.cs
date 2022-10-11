@@ -199,18 +199,6 @@ namespace DB_Settings_Checker
             if (safe_user_create.Length == 1)
             { label7.Text = "Выключено"; }
 
-
-
-
-
-
-
-
-
-
-
-
-
             string SSL = manager.GetPrivateString("mysqld", "require_secure_transport"); // символические ссылки
             label9.Text = SSL;
             if (SSL == "off")
@@ -236,7 +224,6 @@ namespace DB_Settings_Checker
             { label9.Text = "Выключено"; }
 
 
-
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -258,7 +245,7 @@ namespace DB_Settings_Checker
             }
             if (string.IsNullOrEmpty(textBox3.Text) == false)
             {
-                manager.WritePrivateString("mysqld", "max-connections", textBox3.Text);
+                manager.WritePrivateString("mysqld", "max_connections", textBox3.Text);
             }
             if (string.IsNullOrEmpty(textBox4.Text) == false)
             {
@@ -286,11 +273,11 @@ namespace DB_Settings_Checker
                     manager.WritePrivateString("mysqld", "ssl_key", "server - key.pem");
                     manager.WritePrivateString("mysqld", "auto_generate_certs", "on");
                 }
-                else { manager.WritePrivateString("mysqld", "require_secure_transport", textBox8.Text); }
-
-
-
-
+                else
+                {
+                    manager.WritePrivateString("mysqld", "require_secure_transport", textBox8.Text);
+                }
+            }
 
 
                 //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
@@ -331,6 +318,9 @@ namespace DB_Settings_Checker
                     label15.BackColor = Color.Lime;
                 }
 
+
+
+
                 string max_connections = manager.GetPrivateString("mysqld", "max_connections"); //количество одновременных подключений
                 label17.Text = max_connections;
                 string max_conn = label17.Text;
@@ -344,7 +334,42 @@ namespace DB_Settings_Checker
                 }
 
 
-                string connect_timeout = manager.GetPrivateString("mysqld", "connect_timeout"); //время для аутентификации
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            string connect_timeout = manager.GetPrivateString("mysqld", "connect_timeout"); //время для аутентификации
                 label16.Text = connect_timeout;
                 if (connect_timeout.Length == 0)
                 {
@@ -407,9 +432,9 @@ namespace DB_Settings_Checker
                 {
                     label20.Text = "Включено";
                 }
-                if (int.Parse(symbolic_links) == 1)
+                if (symbolic_links == "1")
                 { label20.Text = "Включено"; }
-                if (int.Parse(symbolic_links) == 0)
+                if (symbolic_links == "0")
                 { label20.Text = "Выключено"; }
 
 
@@ -463,22 +488,10 @@ namespace DB_Settings_Checker
                 { label9.Text = "Выключено"; }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
             }
 
 
         }
 
     }
-}
+
