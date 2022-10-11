@@ -5,6 +5,8 @@ using System.Linq;
 using System.Diagnostics;
 using System.ServiceProcess;
 using System.Drawing.Text;
+using System.Runtime.ConstrainedExecution;
+using System.Windows.Forms;
 
 
 namespace DB_Settings_Checker
@@ -19,7 +21,7 @@ namespace DB_Settings_Checker
         {
             public INIManager(string aPath)     //конструктор, принимающий путь к INI-файлу
             {
-                path = aPath;           
+                path = aPath;
             }
 
             public INIManager() : this("") { }
@@ -65,169 +67,16 @@ namespace DB_Settings_Checker
 
             //получение значения по ключу port из секции mysqld
             string port = manager.GetPrivateString("mysqld", "port");
-            
-            label14.Text = port; //для отображения текущего установленного значение
-            //красный цвет - небезопасные настройки, зеленый - безопасные
-                if (label14.Text == "3306")
-                {
-                    label14.ForeColor = Color.Red;
-                }
-                else
-                {
-                    label14.ForeColor = Color.Green;
-                }
-            
-            string bind_address = manager.GetPrivateString("mysqld", "bind-address"); //разрешенные IP-адреса
-            label15.Text = bind_address;
-                if (bind_address.Length == 0) 
-                {
-                    label15.Text = "Разрешены все адреса";
-                }
-            if (label15.Text == "Разрешены все адреса")
-            {
-                label15.ForeColor = Color.Red;
-            }
-            else
-            {
-                label15.ForeColor = Color.Green;
-            }
-
-            string max_connections = manager.GetPrivateString("mysqld", "max_connections"); //количество одновременных подключений
-            label17.Text = max_connections;
-            string max_conn = label17.Text;
-            if (int.Parse(max_conn) > 20)
-            {
-                label17.ForeColor = Color.Red;
-            }
-            else
-            {
-                label17.ForeColor = Color.Green;
-            }
-
-
-            string connect_timeout = manager.GetPrivateString("mysqld", "connect_timeout"); //время для аутентификации
-            label16.Text = connect_timeout;
-            if (connect_timeout.Length == 0)
-            {
-                label16.Text = "10";
-            }
-            string conn_time = label16.Text;
-            if (int.Parse(conn_time) > 10)
-            {
-                label16.ForeColor = Color.Red;
-            }
-            else
-            {
-                label16.ForeColor = Color.Green;
-            }
-
-            string local_infile = manager.GetPrivateString("mysqld", "local-infile"); //чтение файлов
-            label21.Text = local_infile;
-
-            
-            if (int.Parse(local_infile) == 1)
-            {
-                label21.ForeColor = Color.Red;
-            }
-            else
-            {
-                label21.ForeColor = Color.Green;
-            }
-
-            if (local_infile.Length == 0)
-            {
-                label21.Text = "Включено";
-            }
-            else if (local_infile == "0") 
-            {
-                label21.Text = "Выключено";
-            }
-            else if (local_infile == "1")
-            {
-                label21.Text = "Включено";
-            }
-
-            
-
-            string symbolic_links = manager.GetPrivateString("mysqld", "symbolic_links"); // символические ссылки
-            label20.Text = symbolic_links;
-            if (symbolic_links == "1")
-            {
-                label20.ForeColor = Color.Red;
-            }
-            if (string.IsNullOrEmpty(symbolic_links) == true)
-            {
-                label20.ForeColor = Color.Red;
-            }
-
-            else
-            {
-                label20.ForeColor = Color.Green;
-            }
-            if (symbolic_links.Length == 0)
-            {
-                label20.Text = "Включено";
-            }
-            if (symbolic_links.Length == 1) 
-            { label20.Text = "Выключено"; }
-          
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini");
-
-            if (string.IsNullOrEmpty(textBox1.Text) == false) //если поле не пустое, в файл my.ini записывается новое значение
-            {
-                manager.WritePrivateString("mysqld", "port", textBox1.Text);
-            }
-            if (string.IsNullOrEmpty(textBox2.Text) == false) 
-            {
-                manager.WritePrivateString("mysqld", "bind-address", textBox2.Text);
-            }
-            if (string.IsNullOrEmpty(textBox3.Text) == false)
-            {
-                manager.WritePrivateString("mysqld", "max-connections", textBox3.Text);
-            }
-            if (string.IsNullOrEmpty(textBox4.Text) == false)
-            {
-                manager.WritePrivateString("mysqld", "connect_timeout", textBox4.Text);
-            }
-            if (string.IsNullOrEmpty(textBox5.Text) == false)
-            {
-                manager.WritePrivateString("mysqld", "symbolic_links", textBox5.Text);
-            }
-            if (string.IsNullOrEmpty(textBox6.Text) == false)
-            {
-                manager.WritePrivateString("mysqld", "local-infile", textBox6.Text);
-            }
-           
-            //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
-            ServiceController ser = new ServiceController("MYSQL80");
-            ser.Stop();
-            Thread.Sleep(5000);
-            ser.Start();
-            ser.Close();
-            Thread.Sleep(5000);
-            
-
-            //получение значения по ключу port из секции mysqld
-            string port = manager.GetPrivateString("mysqld", "port");
 
             label14.Text = port; //для отображения текущего установленного значение
                                  //красный цвет - небезопасные настройки, зеленый - безопасные
             if (label14.Text == "3306")
             {
-                label14.ForeColor = Color.Red;
+                label14.BackColor = Color.Red;
             }
             else
             {
-                label14.ForeColor = Color.Green;
+                label14.BackColor = Color.Lime;
             }
 
             string bind_address = manager.GetPrivateString("mysqld", "bind-address"); //разрешенные IP-адреса
@@ -238,11 +87,11 @@ namespace DB_Settings_Checker
             }
             if (label15.Text == "Разрешены все адреса")
             {
-                label15.ForeColor = Color.Red;
+                label15.BackColor = Color.Red;
             }
             else
             {
-                label15.ForeColor = Color.Green;
+                label15.BackColor = Color.Lime;
             }
 
             string max_connections = manager.GetPrivateString("mysqld", "max_connections"); //количество одновременных подключений
@@ -250,11 +99,11 @@ namespace DB_Settings_Checker
             string max_conn = label17.Text;
             if (int.Parse(max_conn) > 20)
             {
-                label17.ForeColor = Color.Red;
+                label17.BackColor = Color.Red;
             }
             else
             {
-                label17.ForeColor = Color.Green;
+                label17.BackColor = Color.Lime;
             }
 
 
@@ -267,11 +116,11 @@ namespace DB_Settings_Checker
             string conn_time = label16.Text;
             if (int.Parse(conn_time) > 10)
             {
-                label16.ForeColor = Color.Red;
+                label16.BackColor = Color.Red;
             }
             else
             {
-                label16.ForeColor = Color.Green;
+                label16.BackColor = Color.Lime;
             }
 
             string local_infile = manager.GetPrivateString("mysqld", "local-infile"); //чтение файлов
@@ -280,11 +129,11 @@ namespace DB_Settings_Checker
 
             if (int.Parse(local_infile) == 1)
             {
-                label21.ForeColor = Color.Red;
+                label21.BackColor = Color.Red;
             }
             else
             {
-                label21.ForeColor = Color.Green;
+                label21.BackColor = Color.Lime;
             }
 
             if (local_infile.Length == 0)
@@ -306,16 +155,16 @@ namespace DB_Settings_Checker
             label20.Text = symbolic_links;
             if (symbolic_links == "1")
             {
-                label20.ForeColor = Color.Red;
+                label20.BackColor = Color.Red;
             }
             if (string.IsNullOrEmpty(symbolic_links) == true)
             {
-                label20.ForeColor = Color.Red;
+                label20.BackColor = Color.Red;
             }
 
             else
             {
-                label20.ForeColor = Color.Green;
+                label20.BackColor = Color.Lime;
             }
             if (symbolic_links.Length == 0)
             {
@@ -324,9 +173,312 @@ namespace DB_Settings_Checker
             if (symbolic_links.Length == 1)
             { label20.Text = "Выключено"; }
 
+
+
+
+
+            string safe_user_create = manager.GetPrivateString("mysqld", "safe_user_create"); // символические ссылки
+            label7.Text = safe_user_create;
+            if (safe_user_create == "off")
+            {
+                label7.BackColor = Color.Red;
+            }
+            if (string.IsNullOrEmpty(safe_user_create) == true)
+            {
+                label7.BackColor = Color.Red;
+            }
+
+            else
+            {
+                label7.BackColor = Color.Lime;
+            }
+            if (safe_user_create.Length == 0)
+            {
+                label7.Text = "Включено";
+            }
+            if (safe_user_create.Length == 1)
+            { label7.Text = "Выключено"; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+            string SSL = manager.GetPrivateString("mysqld", "require_secure_transport"); // символические ссылки
+            label9.Text = SSL;
+            if (SSL == "off")
+            {
+                label9.BackColor = Color.Red;
+            }
+            if (string.IsNullOrEmpty(SSL) == true)
+            {
+                label9.BackColor = Color.Red;
+            }
+
+            else
+            {
+                label9.BackColor = Color.Lime;
+            }
+            if (SSL.Length == 0)
+            {
+                label9.Text = "Выключено";
+            }
+            if (SSL == "on")
+            { label9.Text = "Включено"; }
+            if (SSL == "off")
+            { label9.Text = "Выключено"; }
+
+
+
         }
 
+        private void label5_Click(object sender, EventArgs e)
+        {
 
-    } 
-        
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini");
+
+            if (string.IsNullOrEmpty(textBox1.Text) == false) //если поле не пустое, в файл my.ini записывается новое значение
+            {
+                manager.WritePrivateString("mysqld", "port", textBox1.Text);
+            }
+            if (string.IsNullOrEmpty(textBox2.Text) == false)
+            {
+                manager.WritePrivateString("mysqld", "bind-address", textBox2.Text);
+            }
+            if (string.IsNullOrEmpty(textBox3.Text) == false)
+            {
+                manager.WritePrivateString("mysqld", "max-connections", textBox3.Text);
+            }
+            if (string.IsNullOrEmpty(textBox4.Text) == false)
+            {
+                manager.WritePrivateString("mysqld", "connect_timeout", textBox4.Text);
+            }
+            if (string.IsNullOrEmpty(textBox5.Text) == false)
+            {
+                manager.WritePrivateString("mysqld", "symbolic_links", textBox5.Text);
+            }
+            if (string.IsNullOrEmpty(textBox6.Text) == false)
+            {
+                manager.WritePrivateString("mysqld", "local-infile", textBox6.Text);
+            }
+            if (string.IsNullOrEmpty(textBox7.Text) == false)
+            {
+                manager.WritePrivateString("mysqld", "safe_user_create", textBox7.Text);
+            }
+            if (string.IsNullOrEmpty(textBox8.Text) == false)
+            {
+                if (textBox8.Text == "on")
+                {
+                    manager.WritePrivateString("mysqld", "require_secure_transport", textBox8.Text);
+                    manager.WritePrivateString("mysqld", "ssl_ca", "ca.pem");
+                    manager.WritePrivateString("mysqld", "ssl_cert", "cert.pem");
+                    manager.WritePrivateString("mysqld", "ssl_key", "server - key.pem");
+                    manager.WritePrivateString("mysqld", "auto_generate_certs", "on");
+                }
+                else { manager.WritePrivateString("mysqld", "require_secure_transport", textBox8.Text); }
+
+
+
+
+
+
+                //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
+                ServiceController ser = new ServiceController("MYSQL80");
+                ser.Stop();
+                Thread.Sleep(5000);
+                ser.Start();
+                ser.Close();
+                Thread.Sleep(5000);
+
+
+                //получение значения по ключу port из секции mysqld
+                string port = manager.GetPrivateString("mysqld", "port");
+
+                label14.Text = port; //для отображения текущего установленного значение
+                                     //красный цвет - небезопасные настройки, зеленый - безопасные
+                if (label14.Text == "3306")
+                {
+                    label14.BackColor = Color.Red;
+                }
+                else
+                {
+                    label14.BackColor = Color.Lime;
+                }
+
+                string bind_address = manager.GetPrivateString("mysqld", "bind-address"); //разрешенные IP-адреса
+                label15.Text = bind_address;
+                if (bind_address.Length == 0)
+                {
+                    label15.Text = "Разрешены все адреса";
+                }
+                if (label15.Text == "Разрешены все адреса")
+                {
+                    label15.BackColor = Color.Red;
+                }
+                else
+                {
+                    label15.BackColor = Color.Lime;
+                }
+
+                string max_connections = manager.GetPrivateString("mysqld", "max_connections"); //количество одновременных подключений
+                label17.Text = max_connections;
+                string max_conn = label17.Text;
+                if (int.Parse(max_conn) > 20)
+                {
+                    label17.BackColor = Color.Red;
+                }
+                else
+                {
+                    label17.BackColor = Color.Lime;
+                }
+
+
+                string connect_timeout = manager.GetPrivateString("mysqld", "connect_timeout"); //время для аутентификации
+                label16.Text = connect_timeout;
+                if (connect_timeout.Length == 0)
+                {
+                    label16.Text = "10";
+                }
+                string conn_time = label16.Text;
+                if (int.Parse(conn_time) > 10)
+                {
+                    label16.BackColor = Color.Red;
+                }
+                else
+                {
+                    label16.BackColor = Color.Lime;
+                }
+
+                string local_infile = manager.GetPrivateString("mysqld", "local-infile"); //чтение файлов
+                label21.Text = local_infile;
+
+
+                if (int.Parse(local_infile) == 1)
+                {
+                    label21.BackColor = Color.Red;
+                }
+                else
+                {
+                    label21.BackColor = Color.Lime;
+                }
+
+                if (local_infile.Length == 0)
+                {
+                    label21.Text = "Включено";
+                }
+                else if (local_infile == "0")
+                {
+                    label21.Text = "Выключено";
+                }
+                else if (local_infile == "1")
+                {
+                    label21.Text = "Включено";
+                }
+
+
+
+                string symbolic_links = manager.GetPrivateString("mysqld", "symbolic_links"); // символические ссылки
+                label20.Text = symbolic_links;
+                if (symbolic_links == "1")
+                {
+                    label20.BackColor = Color.Red;
+                }
+                if (string.IsNullOrEmpty(symbolic_links) == true)
+                {
+                    label20.BackColor = Color.Red;
+                }
+
+                else
+                {
+                    label20.BackColor = Color.Lime;
+                }
+                if (symbolic_links.Length == 0)
+                {
+                    label20.Text = "Включено";
+                }
+                if (int.Parse(symbolic_links) == 1)
+                { label20.Text = "Включено"; }
+                if (int.Parse(symbolic_links) == 0)
+                { label20.Text = "Выключено"; }
+
+
+                string safe_user_create = manager.GetPrivateString("mysqld", "safe_user_create"); // символические ссылки
+                label7.Text = safe_user_create;
+                if (safe_user_create == "off")
+                {
+                    label7.BackColor = Color.Red;
+                }
+                if (string.IsNullOrEmpty(safe_user_create) == true)
+                {
+                    label7.BackColor = Color.Red;
+                }
+
+                else
+                {
+                    label7.BackColor = Color.Lime;
+                }
+                if (safe_user_create.Length == 0)
+                {
+                    label7.Text = "Включено";
+                }
+                if (safe_user_create.Length == 1)
+                { label7.Text = "Выключено"; }
+
+
+
+
+                string SSL = manager.GetPrivateString("mysqld", "require_secure_transport"); // символические ссылки
+                label9.Text = SSL;
+                if (SSL == "off")
+                {
+                    label9.BackColor = Color.Red;
+                }
+                if (string.IsNullOrEmpty(SSL) == true)
+                {
+                    label9.BackColor = Color.Red;
+                }
+
+                else
+                {
+                    label9.BackColor = Color.Lime;
+                }
+                if (SSL.Length == 0)
+                {
+                    label9.Text = "Выключено";
+                }
+                if (SSL == "on")
+                { label9.Text = "Включено"; }
+                if (SSL == "off")
+                { label9.Text = "Выключено"; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+
+
+        }
+
+    }
 }
