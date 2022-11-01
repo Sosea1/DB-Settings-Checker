@@ -32,7 +32,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -43,12 +42,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
@@ -99,7 +96,6 @@
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.label38);
             this.tabPage1.Controls.Add(this.label37);
-            this.tabPage1.Controls.Add(this.label36);
             this.tabPage1.Controls.Add(this.label35);
             this.tabPage1.Controls.Add(this.label34);
             this.tabPage1.Controls.Add(this.label33);
@@ -110,12 +106,10 @@
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label22);
             this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label23);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label24);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label25);
-            this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label27);
@@ -128,7 +122,7 @@
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1197, 658);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Текущие настройки";
@@ -138,7 +132,7 @@
             this.label38.BackColor = System.Drawing.Color.White;
             this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label38.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label38.Location = new System.Drawing.Point(681, 461);
+            this.label38.Location = new System.Drawing.Point(681, 411);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(458, 31);
             this.label38.TabIndex = 38;
@@ -150,30 +144,19 @@
             this.label37.BackColor = System.Drawing.Color.White;
             this.label37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label37.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label37.Location = new System.Drawing.Point(681, 413);
+            this.label37.Location = new System.Drawing.Point(681, 350);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(458, 33);
             this.label37.TabIndex = 38;
             this.label37.Text = "max_user_connections - Максимальное количество одновременных подключений для одно" +
     "го пользователя в базе данных, рекомендуется ограничить.";
             // 
-            // label36
-            // 
-            this.label36.BackColor = System.Drawing.Color.White;
-            this.label36.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label36.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label36.Location = new System.Drawing.Point(681, 358);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(458, 20);
-            this.label36.TabIndex = 38;
-            this.label36.Text = "...";
-            // 
             // label35
             // 
             this.label35.BackColor = System.Drawing.Color.White;
             this.label35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label35.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label35.Location = new System.Drawing.Point(681, 304);
+            this.label35.Location = new System.Drawing.Point(681, 294);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(458, 40);
             this.label35.TabIndex = 38;
@@ -245,7 +228,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(523, 472);
+            this.label21.Location = new System.Drawing.Point(523, 422);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(25, 16);
             this.label21.TabIndex = 28;
@@ -255,7 +238,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(668, 571);
+            this.label11.Location = new System.Drawing.Point(664, 559);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(31, 16);
             this.label11.TabIndex = 3;
@@ -265,7 +248,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(523, 413);
+            this.label22.Location = new System.Drawing.Point(523, 363);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(25, 16);
             this.label22.TabIndex = 29;
@@ -275,28 +258,18 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(438, 571);
+            this.label10.Location = new System.Drawing.Point(434, 559);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(176, 16);
             this.label10.TabIndex = 2;
             this.label10.Text = "Уровень защищенности:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label23.Location = new System.Drawing.Point(523, 358);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(25, 16);
-            this.label23.TabIndex = 30;
-            this.label23.Text = "///";
             // 
             // label9
             // 
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label9.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(27, 472);
+            this.label9.Location = new System.Drawing.Point(27, 422);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(413, 20);
             this.label9.TabIndex = 0;
@@ -317,7 +290,7 @@
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(27, 413);
+            this.label8.Location = new System.Drawing.Point(27, 363);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(413, 20);
             this.label8.TabIndex = 0;
@@ -332,17 +305,6 @@
             this.label25.Size = new System.Drawing.Size(25, 16);
             this.label25.TabIndex = 32;
             this.label25.Text = "///";
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.White;
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(27, 358);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(413, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Возможность модификации пользователей";
             // 
             // label26
             // 
@@ -390,11 +352,11 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label28.Location = new System.Drawing.Point(523, 94);
+            this.label28.Location = new System.Drawing.Point(501, 94);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(25, 16);
+            this.label28.Size = new System.Drawing.Size(86, 16);
             this.label28.TabIndex = 35;
-            this.label28.Text = "///";
+            this.label28.Text = "192.168.0.1";
             // 
             // label29
             // 
@@ -474,7 +436,7 @@
             this.tabPage2.Controls.Add(this.label20);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1197, 658);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Изменить настройки";
@@ -662,6 +624,7 @@
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "Form1";
             this.Text = "Настройка безопасности БД";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -680,7 +643,6 @@
         private Label label1;
         private Label label9;
         private Label label8;
-        private Label label7;
         private Label label6;
         private Label label5;
         private Label label4;
@@ -690,7 +652,6 @@
         private Label label11;
         private Label label22;
         private Label label10;
-        private Label label23;
         private Label label24;
         private Label label25;
         private Label label26;
@@ -723,7 +684,6 @@
         private Label label34;
         private Label label38;
         private Label label37;
-        private Label label36;
         private Label label35;
     }
 }
