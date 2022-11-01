@@ -66,6 +66,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(248, 26);
             this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "root";
             // 
             // textBox2
             // 
@@ -75,6 +76,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(248, 26);
             this.textBox2.TabIndex = 3;
+            this.textBox2.Text = "1515";
             this.textBox2.UseSystemPasswordChar = true;
             this.textBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyUp);
             // 

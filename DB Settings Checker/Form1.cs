@@ -38,13 +38,13 @@ namespace DB_Settings_Checker
 
             label29.Text = port; //дл€ отображени€ текущего установленного значение
                                   //красный цвет - небезопасные настройки, зеленый - безопасные
-            if (label29.Text != "3306") label29.BackColor = Color.Lime;
-            else label29.BackColor = Color.Red;
+            if (label29.Text != "3306") label29.ForeColor = Color.Green;
+            else label29.ForeColor = Color.Red;
 
             string symb = manager.GetPrivateString("mysqld", "symbolic-links");
             if(String.IsNullOrEmpty(symb)) label24.Text = "1"; else label24.Text = symb;
-            if (label24.Text != "1" || String.IsNullOrEmpty(symb)) label24.BackColor = Color.Lime;
-            else label24.BackColor = Color.Red;
+            if (label24.Text != "1" || String.IsNullOrEmpty(symb)) label24.ForeColor = Color.Green;
+            else label24.ForeColor = Color.Red;
 
             string bind_address = manager.GetPrivateString("mysqld", "bind-address"); //разрешенные IP-адреса
             
@@ -65,8 +65,8 @@ namespace DB_Settings_Checker
 
             if (bind_address.Length == 0) label28.Text = "любой";
 
-            if (label28.Text == "любой") label28.BackColor = Color.Red;
-            else label28.BackColor = Color.Lime;
+            if (label28.Text == "любой") label28.ForeColor = Color.Red;
+            else label28.ForeColor = Color.Green;
 
            
             MySqlConnection conn = new MySqlConnection(form2.str());
@@ -76,18 +76,47 @@ namespace DB_Settings_Checker
             MySqlCommand command1 = new MySqlCommand(sql, conn);
             string max_con = command1.ExecuteScalar().ToString();
             label27.Text = max_con;
+            if (int.Parse(max_con) >= 100) label27.ForeColor = Color.Red; else label27.ForeColor = Color.Green;
 
             sql = "select @@connect_timeout;";
-            MySqlCommand command2 = new MySqlCommand(sql, conn);
-            string conn_time = command2.ExecuteScalar().ToString();
+            command1 = new MySqlCommand(sql, conn);
+            string conn_time = command1.ExecuteScalar().ToString();
             label26.Text = conn_time;
+            if (int.Parse(conn_time) > 10) label26.ForeColor = Color.Red; else label26.ForeColor = Color.Green;
 
             sql = "select @@local_infile;";
-            MySqlCommand command3 = new MySqlCommand(sql, conn);
-            string loc_file = command2.ExecuteScalar().ToString();
-            label25.Text = conn_time;
+            command1 = new MySqlCommand(sql, conn);
+            string loc_file = command1.ExecuteScalar().ToString();
+            if(string.IsNullOrEmpty(loc_file) || loc_file=="0")
+            {
+                label25.Text = "0";
+                label25.ForeColor = Color.Red;
+            }
+            else
+            {
+                label25.Text = loc_file;
+                label25.ForeColor = Color.Green;
+            }
+            
 
 
+            sql = "select @@max_user_connections;";
+            command1 = new MySqlCommand(sql, conn);
+            string max_user = command1.ExecuteScalar().ToString();
+            label22.Text = max_user;
+            if (int.Parse(max_user) > 0) label22.ForeColor = Color.Red; else label22.ForeColor = Color.Green;
+            
+
+            if (form2.pass().Length < 8)
+            {
+                label21.ForeColor = Color.Red;
+                label21.Text = "Ќе надежный";
+            }
+            else
+            {
+                label21.ForeColor = Color.Green;
+                label21.Text = "Ќадежный";
+            }
 
         }
 
@@ -97,36 +126,32 @@ namespace DB_Settings_Checker
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini"); // путь до INI файла
-
-            //if (string.IsNullOrEmpty(textBox1.Text) == false) //если поле не пустое, в файл my.ini записываетс€ новое значение
-           // {
-           //     manager.WritePrivateString("mysqld", "port", textBox1.Text); // записываем прот
-          //  }
-           // if (string.IsNullOrEmpty(textBox2.Text) == false)
-          //  {
-          //      manager.WritePrivateString("mysqld", "bind-address", textBox2.Text); // записываем доступные дл€ подключени€ IP адреса
-          //  }
-        
-          
-            
-                //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
-                ServiceController ser = new ServiceController("MYSQL80");
-                ser.Stop();
-                Thread.Sleep(5000);
-                ser.Start();
-                ser.Close();
-                Thread.Sleep(5000);
-
-                Ini_reader();
-
-            }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini"); // путь до INI файла
+
+            //если поле не пустое, в файл my.ini записываетс€ новое значение
+            if (string.IsNullOrEmpty(textBox18.Text) == false) manager.WritePrivateString("mysqld", "port", textBox18.Text); // записываем порт
+            if (string.IsNullOrEmpty(textBox17.Text) == false) manager.WritePrivateString("mysqld", "bind-address", textBox17.Text); // записываем доступные дл€ подключени€ IP адреса
+
+            string query = "set @max_connections = "+ textBox16;
+
+            //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
+            ServiceController ser = new ServiceController("MYSQL80");
+            ser.Stop();
+            Thread.Sleep(5000);
+            ser.Start();
+            ser.Close();
+            Thread.Sleep(5000);
+
+            Ini_reader();
         }
     }
 

@@ -24,12 +24,14 @@ namespace DB_Settings_Checker
         }
         public string str() 
         {
-
-            string login = textBox1.Text;
-            string pass = textBox2.Text;
-            string connStr = "server=localhost;user=" + login + ";database=mydb;password=" + pass + ";port=3306;";
-            return connStr;
+            return "server=localhost;user=" + textBox1.Text + ";database=mydb;password=" + textBox2.Text + ";port=3306;";
         }
+
+        public string pass()
+        {
+            return textBox2.Text;
+        }
+
         public void button1_Click(object sender, EventArgs e)
         {
             Form1 newform = new Form1();
@@ -47,17 +49,6 @@ namespace DB_Settings_Checker
                 this.Hide();
                 newform.Show();
 
-                //string sql = "SELECT name FROM men WHERE id = 2";
-
-               // MySqlCommand command = new MySqlCommand(sql, conn);
-
-               // string name = command.ExecuteScalar().ToString();
-
-               // Console.WriteLine(name);
-
-                
-
-                MessageBox.Show("Всё путём!");
 
             }
             catch (Exception)
