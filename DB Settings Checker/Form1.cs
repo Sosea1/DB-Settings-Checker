@@ -37,11 +37,15 @@ namespace DB_Settings_Checker
             string port = manager.GetPrivateString("mysqld", "port");
 
             label29.Text = port; //для отображения текущего установленного значение
-                                 //красный цвет - небезопасные настройки, зеленый - безопасные
+                                  //красный цвет - небезопасные настройки, зеленый - безопасные
             if (label29.Text != "3306") label29.BackColor = Color.Lime;
-
             else label29.BackColor = Color.Red;
-            
+
+            string symb = manager.GetPrivateString("mysqld", "symbolic-links");
+            if(String.IsNullOrEmpty(symb)) label24.Text = "1"; else label24.Text = symb;
+            if (label24.Text != "1" || String.IsNullOrEmpty(symb)) label24.BackColor = Color.Lime;
+            else label24.BackColor = Color.Red;
+
             string bind_address = manager.GetPrivateString("mysqld", "bind-address"); //разрешенные IP-адреса
             
 
@@ -69,17 +73,22 @@ namespace DB_Settings_Checker
             conn.Open();
 
             string sql = "select @@max_connections;";
-
             MySqlCommand command1 = new MySqlCommand(sql, conn);
-
             string max_con = command1.ExecuteScalar().ToString();
-
             label27.Text = max_con;
 
             sql = "select @@connect_timeout;";
             MySqlCommand command2 = new MySqlCommand(sql, conn);
             string conn_time = command2.ExecuteScalar().ToString();
             label26.Text = conn_time;
+
+            sql = "select @@local_infile;";
+            MySqlCommand command3 = new MySqlCommand(sql, conn);
+            string loc_file = command2.ExecuteScalar().ToString();
+            label25.Text = conn_time;
+
+
+
         }
 
         private void Form1_Load(object sender, EventArgs e)

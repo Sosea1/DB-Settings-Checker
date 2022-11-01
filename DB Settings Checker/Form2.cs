@@ -20,20 +20,20 @@ namespace DB_Settings_Checker
         public Form2()
         {
             InitializeComponent();
-            Form1 newform = new Form1();
-            newform.Owner = this;
+           
         }
         public string str() 
         {
 
             string login = textBox1.Text;
             string pass = textBox2.Text;
-            string connStr = "server=localhost;user=" + login + ";database=mydb;password=" + pass + ";port=3360;";
+            string connStr = "server=localhost;user=" + login + ";database=mydb;password=" + pass + ";port=3306;";
             return connStr;
         }
         public void button1_Click(object sender, EventArgs e)
         {
-            
+            Form1 newform = new Form1();
+            newform.Owner = this;
             //string connStr = "server=localhost;user=" + login +";database=mydb;password=" + pass + ";port=3360;";
             try
             {
@@ -43,9 +43,9 @@ namespace DB_Settings_Checker
                 MySqlConnection conn = new MySqlConnection(str());
 
                 conn.Open();
+                conn.Close();
                 this.Hide();
-                Form1 frm = new Form1();   
-                frm.Show();
+                newform.Show();
 
                 //string sql = "SELECT name FROM men WHERE id = 2";
 
@@ -55,7 +55,7 @@ namespace DB_Settings_Checker
 
                // Console.WriteLine(name);
 
-                conn.Close();
+                
 
                 MessageBox.Show("Всё путём!");
 
