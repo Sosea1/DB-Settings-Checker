@@ -61,7 +61,7 @@ namespace DB_Settings_Checker
                     }
                 }
             }
-            label28.Text = z + "IP address";
+            label28.Text = z + " IP address(es)";
 
             if (bind_address.Length == 0) label28.Text = "любой";
 
