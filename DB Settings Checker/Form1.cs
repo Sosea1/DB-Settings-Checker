@@ -205,7 +205,7 @@ namespace DB_Settings_Checker
 
             }
 
-        
+
     }
 
     }
