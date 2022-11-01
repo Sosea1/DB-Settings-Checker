@@ -11,6 +11,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Runtime.CompilerServices;
 using MySqlConnector;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.DataFormats;
 
 namespace DB_Settings_Checker
 {
@@ -28,8 +29,6 @@ namespace DB_Settings_Checker
         public void Ini_reader()
         {
             Form2 form2 = (Form2)this.Owner;
-            
-            
 
             INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini");
 
@@ -117,7 +116,7 @@ namespace DB_Settings_Checker
                 label21.ForeColor = Color.Green;
                 label21.Text = "Ќадежный";
             }
-
+            conn.Close();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -134,6 +133,10 @@ namespace DB_Settings_Checker
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Form2 form2 = (Form2)this.Owner;
+           
+            MySqlConnection conn = new MySqlConnection(form2.str());
+            conn.Open();
 
             INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini"); // путь до INI файла
 
@@ -141,7 +144,9 @@ namespace DB_Settings_Checker
             if (string.IsNullOrEmpty(textBox18.Text) == false) manager.WritePrivateString("mysqld", "port", textBox18.Text); // записываем порт
             if (string.IsNullOrEmpty(textBox17.Text) == false) manager.WritePrivateString("mysqld", "bind-address", textBox17.Text); // записываем доступные дл€ подключени€ IP адреса
 
-            string query = "set @max_connections = "+ textBox16;
+            string query = "set global max_connections = " + textBox16.Text+";";
+            MySqlCommand comm = new MySqlCommand(query,conn);
+            comm.ExecuteNonQuery();
 
             //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
             ServiceController ser = new ServiceController("MYSQL80");
@@ -150,6 +155,7 @@ namespace DB_Settings_Checker
             ser.Start();
             ser.Close();
             Thread.Sleep(5000);
+            conn.Close();
 
             Ini_reader();
         }
