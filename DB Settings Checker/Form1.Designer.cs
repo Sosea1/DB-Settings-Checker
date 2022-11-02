@@ -58,6 +58,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -71,9 +74,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -329,7 +329,7 @@
             // label28
             // 
             this.label28.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label28.Location = new System.Drawing.Point(432, 104);
+            this.label28.Location = new System.Drawing.Point(432, 103);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(120, 15);
             this.label28.TabIndex = 35;
@@ -339,7 +339,7 @@
             // label29
             // 
             this.label29.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label29.Location = new System.Drawing.Point(432, 36);
+            this.label29.Location = new System.Drawing.Point(432, 45);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(120, 15);
             this.label29.TabIndex = 36;
@@ -384,7 +384,7 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(24, 34);
+            this.label1.Location = new System.Drawing.Point(24, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(362, 20);
             this.label1.TabIndex = 0;
@@ -446,6 +446,30 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(494, 23);
             this.textBox11.TabIndex = 17;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox3.Location = new System.Drawing.Point(472, 285);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(494, 23);
+            this.textBox3.TabIndex = 13;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox2.Location = new System.Drawing.Point(472, 242);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(494, 23);
+            this.textBox2.TabIndex = 13;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(472, 199);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(494, 23);
+            this.textBox1.TabIndex = 13;
             // 
             // textBox15
             // 
@@ -569,30 +593,6 @@
             this.label20.TabIndex = 2;
             this.label20.Text = "Порт";
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(472, 199);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(494, 23);
-            this.textBox1.TabIndex = 13;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(472, 242);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(494, 23);
-            this.textBox2.TabIndex = 13;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(472, 285);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(494, 23);
-            this.textBox3.TabIndex = 13;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -603,6 +603,7 @@
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройка безопасности БД";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);

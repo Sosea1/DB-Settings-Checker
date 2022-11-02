@@ -12,6 +12,7 @@ using System.Runtime.CompilerServices;
 using MySqlConnector;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.DataFormats;
+using System.ComponentModel;
 
 namespace DB_Settings_Checker
 {
@@ -46,8 +47,6 @@ namespace DB_Settings_Checker
             else label24.ForeColor = Color.Red;
 
             string bind_address = manager.GetPrivateString("mysqld", "bind-address"); //разрешенные IP-адреса
-            
-
             int z = 0;
             if (bind_address == "0.0.0.0") label28.Text = "любой";
             else
@@ -61,13 +60,10 @@ namespace DB_Settings_Checker
                 }
             }
             label28.Text = z + " IP address(es)";
-
             if (bind_address.Length == 0) label28.Text = "любой";
-
             if (label28.Text == "любой") label28.ForeColor = Color.Red;
             else label28.ForeColor = Color.Green;
 
-           
             MySqlConnection conn = new MySqlConnection(form2.str());
             conn.Open();
 
@@ -97,15 +93,12 @@ namespace DB_Settings_Checker
                 label25.ForeColor = Color.Green;
             }
             
-
-
             sql = "select @@max_user_connections;";
             command1 = new MySqlCommand(sql, conn);
             string max_user = command1.ExecuteScalar().ToString();
             label22.Text = max_user;
             if (int.Parse(max_user) > 0) label22.ForeColor = Color.Red; else label22.ForeColor = Color.Green;
-            
-
+           
             if (form2.pass().Length < 8)
             {
                 label21.ForeColor = Color.Red;
@@ -125,7 +118,6 @@ namespace DB_Settings_Checker
 
         }
 
-
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -139,23 +131,72 @@ namespace DB_Settings_Checker
             conn.Open();
 
             INIManager manager = new INIManager("C:\\ProgramData\\MySQL\\MySQL Server 8.0\\my.ini"); // путь до INI файла
+            string query;
+            MySqlCommand comm;
 
-            //если поле не пустое, в файл my.ini записывается новое значение
-            if (string.IsNullOrEmpty(textBox18.Text) == false) manager.WritePrivateString("mysqld", "port", textBox18.Text); // записываем порт
-            if (string.IsNullOrEmpty(textBox17.Text) == false) manager.WritePrivateString("mysqld", "bind-address", textBox17.Text); // записываем доступные для подключения IP адреса
+            try
+            {
+                //если поле не пустое, в файл my.ini записывается новое значение
+                if (string.IsNullOrEmpty(textBox18.Text) == false) manager.WritePrivateString("mysqld", "port", textBox18.Text); // записываем порт
+                if (string.IsNullOrEmpty(textBox17.Text) == false) manager.WritePrivateString("mysqld", "bind-address", textBox17.Text);// записываем доступные для подключения IP адреса
+                if (string.IsNullOrEmpty(textBox2.Text) == false) manager.WritePrivateString("mysqld", "symbolic-links", textBox2.Text);
 
-            string query = "set global max_connections = " + textBox16.Text+";";
-            MySqlCommand comm = new MySqlCommand(query,conn);
-            comm.ExecuteNonQuery();
+                if (string.IsNullOrEmpty(textBox16.Text) == false)
+                {
+                    query = "set global max_connections = " + textBox16.Text + ";";
+                    comm = new MySqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+                }
 
-            //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
-            ServiceController ser = new ServiceController("MYSQL80");
-            ser.Stop();
-            Thread.Sleep(5000);
-            ser.Start();
-            ser.Close();
-            Thread.Sleep(5000);
-            conn.Close();
+                if (string.IsNullOrEmpty(textBox15.Text) == false)
+                {
+                    query = "set global connect_timeout = " + textBox15.Text + ";";
+                    comm = new MySqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+                }
+
+                if (string.IsNullOrEmpty(textBox3.Text) == false)
+                {
+                    query = "set max_user_connections = " + textBox3.Text + ";";
+                    comm = new MySqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+                }
+
+                if (string.IsNullOrEmpty(textBox10.Text) == false)
+                {
+                    if (textBox10.TextLength > 8)
+                    {
+                        query = "ALTER USER 'root'@'localhost' IDENTIFIED BY '" + textBox10.Text + "';";
+                        comm = new MySqlCommand(query, conn);
+                        comm.ExecuteNonQuery();
+                    }
+                    else MessageBox.Show("Пароль должен содержать 8 символов или больше");
+                }
+            }
+            catch (MySqlException ex)
+            {
+              MessageBox.Show("Произошла ошибка: " + ex.Message,"ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
+                ServiceController ser = new ServiceController("MYSQL80");
+                ser.Stop();
+                Thread.Sleep(5000);
+                ser.Start();
+                ser.Close();
+                Thread.Sleep(5000);
+                conn.Close();
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show("Произошла ошибка: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Win32Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             Ini_reader();
         }

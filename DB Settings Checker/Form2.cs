@@ -15,12 +15,9 @@ namespace DB_Settings_Checker
 {
     public partial class Form2 : Form
     {
-        
-
         public Form2()
         {
             InitializeComponent();
-           
         }
         public string str() 
         {
@@ -39,22 +36,17 @@ namespace DB_Settings_Checker
             //string connStr = "server=localhost;user=" + login +";database=mydb;password=" + pass + ";port=3360;";
             try
             {
-              
-
-
                 MySqlConnection conn = new MySqlConnection(str());
 
                 conn.Open();
                 conn.Close();
                 this.Hide();
                 newform.Show();
-
-
             }
+
             catch (Exception)
             {
-                MessageBox.Show("Не сработало");
-
+                MessageBox.Show("Неправильные параметры для входа");
             }
         }
         
