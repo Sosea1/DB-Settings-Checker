@@ -21,7 +21,7 @@ namespace DB_Settings_Checker
         }
         public string str() // получаем строку подключения, это для 1 формы
         {
-            return "server=localhost;user=" + textBox1.Text + ";database=mydb;password=" + textBox2.Text + ";port=3306;";
+            return "server=localhost;user=" + textBox1.Text + ";database=mydb;password=" + textBox2.Text + ";port=3360;";
         }
         public string pass() //получаем пароль, так же для 1 формы 
         {
