@@ -509,9 +509,9 @@
             this.label12.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label12.Location = new System.Drawing.Point(33, 382);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(264, 16);
+            this.label12.Size = new System.Drawing.Size(185, 16);
             this.label12.TabIndex = 9;
-            this.label12.Text = "Сложность пароля root пользователя";
+            this.label12.Text = "Пароль root пользователя";
             // 
             // label13
             // 

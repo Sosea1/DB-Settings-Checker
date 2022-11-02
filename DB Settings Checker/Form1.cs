@@ -164,7 +164,7 @@ namespace DB_Settings_Checker
 
                 if (string.IsNullOrEmpty(textBox10.Text) == false)
                 {
-                    if (textBox10.TextLength > 8)
+                    if (textBox10.TextLength >= 8)
                     {
                         query = "ALTER USER 'root'@'localhost' IDENTIFIED BY '" + textBox10.Text + "';";
                         comm = new MySqlCommand(query, conn);
