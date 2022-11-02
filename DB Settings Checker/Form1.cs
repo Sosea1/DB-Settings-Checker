@@ -83,12 +83,12 @@ namespace DB_Settings_Checker
             if(string.IsNullOrEmpty(loc_file) || loc_file=="0")
             {
                 label25.Text = "0";
-                label25.ForeColor = Color.Red;
+                label25.ForeColor = Color.Green;
             }
             else
             {
                 label25.Text = loc_file;
-                label25.ForeColor = Color.Green;
+                label25.ForeColor = Color.Red;
             }
             
             sql = "select @@max_user_connections;";
@@ -185,7 +185,7 @@ namespace DB_Settings_Checker
                 ser.Start();
                 ser.Close();
                 Thread.Sleep(5000);
-                conn.Close();
+                
             }
             catch (InvalidOperationException ex) // выявление ошибок если не найдена служба или нет прав администратора и т.п.
             {
@@ -197,6 +197,7 @@ namespace DB_Settings_Checker
             }
 
             Ini_reader();
+            conn.Close();
         }
     }
 
