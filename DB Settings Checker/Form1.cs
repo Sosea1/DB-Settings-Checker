@@ -139,23 +139,35 @@ namespace DB_Settings_Checker
                 if (string.IsNullOrEmpty(textBox17.Text) == false) manager.WritePrivateString("mysqld", "bind-address", textBox17.Text);// записываем доступные для подключения IP адреса
                 if (string.IsNullOrEmpty(textBox2.Text) == false) manager.WritePrivateString("mysqld", "symbolic-links", textBox2.Text); // аналогично символические ссылки
 
+
+
+
                 if (string.IsNullOrEmpty(textBox16.Text) == false) // устанавливаем новое глобальное значение
                 {
-                    query = "set global max_connections = " + textBox16.Text + ";";
+                    query = "set persist max_connections = " + textBox16.Text + "; SET @@PERSIST.max_connections = " + textBox16.Text + ";" ;
                     comm = new MySqlCommand(query, conn);
                     comm.ExecuteNonQuery();
                 }
 
                 if (string.IsNullOrEmpty(textBox15.Text) == false)
                 {
-                    query = "set global connect_timeout = " + textBox15.Text + ";";
+                    query = "set persist connect_timeout = " + textBox15.Text + ";SET @@PERSIST.connect_timeout = " + textBox15.Text + ";";
                     comm = new MySqlCommand(query, conn);
                     comm.ExecuteNonQuery();
                 }
 
-                if (string.IsNullOrEmpty(textBox3.Text) == false)
+
+                if (string.IsNullOrEmpty(textBox1.Text) == false) // устанавливаем новое глобальное значение
                 {
-                    query = "set max_user_connections = " + textBox3.Text + ";";
+                    query = "set persist local_infile = " + textBox1.Text + ";SET @@PERSIST.local_infile = " + textBox1.Text + ";";
+                    comm = new MySqlCommand(query, conn);
+                    comm.ExecuteNonQuery();
+                }
+
+
+                if (string.IsNullOrEmpty(textBox11.Text) == false)
+                {
+                    query = "set persist max_user_connections = " + textBox11.Text + ";SET @@PERSIST.max_user_connections = " + textBox11.Text + ";";
                     comm = new MySqlCommand(query, conn);
                     comm.ExecuteNonQuery();
                 }
@@ -175,7 +187,6 @@ namespace DB_Settings_Checker
             {
               MessageBox.Show("Произошла ошибка: " + ex.Message,"ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             try
             {
                 //перезагрузка сервиса MySQL, чтобы настройки вступили в силу
@@ -185,7 +196,7 @@ namespace DB_Settings_Checker
                 ser.Start();
                 ser.Close();
                 Thread.Sleep(5000);
-                
+
             }
             catch (InvalidOperationException ex) // выявление ошибок если не найдена служба или нет прав администратора и т.п.
             {
@@ -195,7 +206,6 @@ namespace DB_Settings_Checker
             {
                 MessageBox.Show("Произошла ошибка: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             Ini_reader();
             conn.Close();
         }

@@ -58,7 +58,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -67,7 +66,6 @@
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -396,7 +394,6 @@
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.textBox10);
             this.tabPage2.Controls.Add(this.textBox11);
-            this.tabPage2.Controls.Add(this.textBox3);
             this.tabPage2.Controls.Add(this.textBox2);
             this.tabPage2.Controls.Add(this.textBox1);
             this.tabPage2.Controls.Add(this.textBox15);
@@ -405,7 +402,6 @@
             this.tabPage2.Controls.Add(this.textBox18);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.label17);
@@ -434,7 +430,7 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox10.Location = new System.Drawing.Point(472, 380);
+            this.textBox10.Location = new System.Drawing.Point(472, 330);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(494, 23);
             this.textBox10.TabIndex = 19;
@@ -442,18 +438,10 @@
             // textBox11
             // 
             this.textBox11.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox11.Location = new System.Drawing.Point(472, 333);
+            this.textBox11.Location = new System.Drawing.Point(472, 287);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(494, 23);
             this.textBox11.TabIndex = 17;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(472, 285);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(494, 23);
-            this.textBox3.TabIndex = 13;
             // 
             // textBox2
             // 
@@ -507,7 +495,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(33, 382);
+            this.label12.Location = new System.Drawing.Point(33, 333);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(185, 16);
             this.label12.TabIndex = 9;
@@ -517,21 +505,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(33, 335);
+            this.label13.Location = new System.Drawing.Point(33, 290);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(413, 16);
             this.label13.TabIndex = 8;
             this.label13.Text = "Максимальное количество подключений для пользователя";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(33, 292);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(300, 16);
-            this.label14.TabIndex = 7;
-            this.label14.Text = "Возможность модификации пользователей";
             // 
             // label15
             // 
