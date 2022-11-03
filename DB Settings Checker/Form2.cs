@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using Microsoft.VisualBasic.Logging;
 using MySqlConnector;
 
-namespace DB_Settings_Checker
+namespace Lab1_1
 {
     public partial class Form2 : Form
     {

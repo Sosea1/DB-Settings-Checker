@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB Settings Checker", "DB Settings Checker\DB Settings Checker.csproj", "{14E2BE19-630E-475E-828B-A3DBB079DCBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lab1_1", "DB Settings Checker\lab1_1.csproj", "{14E2BE19-630E-475E-828B-A3DBB079DCBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

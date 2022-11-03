@@ -14,8 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.DataFormats;
 using System.ComponentModel;
 
-namespace DB_Settings_Checker
-{
+namespace Lab1_1 { 
    
     public partial class Form1 : Form
     {
@@ -45,7 +44,7 @@ namespace DB_Settings_Checker
             else label24.ForeColor = Color.Red;
 
             string bind_address = manager.GetPrivateString("mysqld", "bind-address"); //разрешенные IP-адреса
-            int z = 0;
+            int z = 1;
             if (bind_address == "0.0.0.0") label28.Text = "любой";
             else
             {

@@ -1,4 +1,4 @@
-﻿namespace DB_Settings_Checker
+﻿namespace Lab1_1
 {
     partial class Form2
     {

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DB_Settings_Checker
+namespace Lab1_1
 {
     public class INIManager
     {
