@@ -82,10 +82,9 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(0, -1);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1054, 545);
+            this.tabControl1.Size = new System.Drawing.Size(1205, 690);
             this.tabControl1.TabIndex = 27;
             // 
             // tabPage1
@@ -115,11 +114,10 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1046, 517);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1197, 658);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Текущие настройки";
             // 
@@ -128,9 +126,9 @@
             this.label38.BackColor = System.Drawing.Color.White;
             this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label38.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label38.Location = new System.Drawing.Point(596, 421);
+            this.label38.Location = new System.Drawing.Point(681, 533);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(401, 36);
+            this.label38.Size = new System.Drawing.Size(458, 45);
             this.label38.TabIndex = 38;
             this.label38.Text = "Сложность пароля зависит от количества символов, если равен или больше 8 то парол" +
     "ь надежный ";
@@ -140,9 +138,9 @@
             this.label37.BackColor = System.Drawing.Color.White;
             this.label37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label37.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label37.Location = new System.Drawing.Point(596, 360);
+            this.label37.Location = new System.Drawing.Point(681, 456);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(401, 47);
+            this.label37.Size = new System.Drawing.Size(458, 59);
             this.label37.TabIndex = 38;
             this.label37.Text = "max_user_connections - Максимальное количество одновременных подключений для одно" +
     "го пользователя в базе данных, рекомендуется ограничить.";
@@ -152,9 +150,9 @@
             this.label35.BackColor = System.Drawing.Color.White;
             this.label35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label35.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label35.Location = new System.Drawing.Point(596, 314);
+            this.label35.Location = new System.Drawing.Point(681, 398);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(401, 32);
+            this.label35.Size = new System.Drawing.Size(458, 40);
             this.label35.TabIndex = 38;
             this.label35.Text = "symbolic_links - Символические ссылки, содержат путь к файлу при обращении к ним," +
     " рекомендуется отключить.";
@@ -164,9 +162,9 @@
             this.label34.BackColor = System.Drawing.Color.White;
             this.label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label34.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label34.Location = new System.Drawing.Point(596, 255);
+            this.label34.Location = new System.Drawing.Point(681, 323);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(401, 46);
+            this.label34.Size = new System.Drawing.Size(458, 58);
             this.label34.TabIndex = 38;
             this.label34.Text = "local-infile - Чтенние файлов базой данных, функция позволяет подключать локальны" +
     "е файлы в базу данных, рекомендуется отключить.";
@@ -176,9 +174,9 @@
             this.label33.BackColor = System.Drawing.Color.White;
             this.label33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label33.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label33.Location = new System.Drawing.Point(596, 203);
+            this.label33.Location = new System.Drawing.Point(681, 257);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(401, 38);
+            this.label33.Size = new System.Drawing.Size(458, 48);
             this.label33.TabIndex = 38;
             this.label33.Text = "connect_timeout - Время аутентификации, Рекомендуется уменьшить для защиты от бру" +
     "тфорс атак.";
@@ -188,9 +186,9 @@
             this.label32.BackColor = System.Drawing.Color.White;
             this.label32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label32.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label32.Location = new System.Drawing.Point(596, 145);
+            this.label32.Location = new System.Drawing.Point(681, 184);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(401, 44);
+            this.label32.Size = new System.Drawing.Size(458, 55);
             this.label32.TabIndex = 38;
             this.label32.Text = "max_connections - Максимальное количество одновременных подключений, рекомендуетс" +
     "я установить лимит на количество сотрудников.";
@@ -200,9 +198,9 @@
             this.label31.BackColor = System.Drawing.Color.White;
             this.label31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label31.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label31.Location = new System.Drawing.Point(596, 87);
+            this.label31.Location = new System.Drawing.Point(681, 110);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(401, 46);
+            this.label31.Size = new System.Drawing.Size(458, 58);
             this.label31.TabIndex = 38;
             this.label31.Text = "bind-address - Разрешенные IP адреса для подлкючения к базе данных, рекомендуется" +
     " ограничить доступ к базе данных и разрешить его только для IP адресов сотрудник" +
@@ -213,9 +211,9 @@
             this.label30.BackColor = System.Drawing.Color.White;
             this.label30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label30.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label30.Location = new System.Drawing.Point(596, 27);
+            this.label30.Location = new System.Drawing.Point(681, 34);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(401, 48);
+            this.label30.Size = new System.Drawing.Size(458, 60);
             this.label30.TabIndex = 37;
             this.label30.Text = "port - Порт подключения к базе данных, рекомендуется изменить на нестандартный дл" +
     "я Усложнения поиска порта злоумышленником.";
@@ -223,9 +221,9 @@
             // label21
             // 
             this.label21.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label21.Location = new System.Drawing.Point(432, 430);
+            this.label21.Location = new System.Drawing.Point(494, 545);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(120, 15);
+            this.label21.Size = new System.Drawing.Size(137, 19);
             this.label21.TabIndex = 28;
             this.label21.Text = "///";
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -233,9 +231,9 @@
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label22.Location = new System.Drawing.Point(432, 376);
+            this.label22.Location = new System.Drawing.Point(494, 476);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(120, 15);
+            this.label22.Size = new System.Drawing.Size(137, 19);
             this.label22.TabIndex = 29;
             this.label22.Text = "///";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,18 +243,18 @@
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label9.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(24, 429);
+            this.label9.Location = new System.Drawing.Point(27, 543);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(362, 20);
+            this.label9.Size = new System.Drawing.Size(413, 25);
             this.label9.TabIndex = 0;
             this.label9.Text = "Сложность пароля root пользователя";
             // 
             // label24
             // 
             this.label24.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label24.Location = new System.Drawing.Point(432, 331);
+            this.label24.Location = new System.Drawing.Point(494, 419);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(120, 15);
+            this.label24.Size = new System.Drawing.Size(137, 19);
             this.label24.TabIndex = 31;
             this.label24.Text = "///";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,18 +264,18 @@
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label8.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(24, 374);
+            this.label8.Location = new System.Drawing.Point(27, 474);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(362, 37);
+            this.label8.Size = new System.Drawing.Size(413, 46);
             this.label8.TabIndex = 0;
             this.label8.Text = "Максимальное количество подключений для пользователя";
             // 
             // label25
             // 
             this.label25.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label25.Location = new System.Drawing.Point(432, 267);
+            this.label25.Location = new System.Drawing.Point(494, 338);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(120, 15);
+            this.label25.Size = new System.Drawing.Size(137, 19);
             this.label25.TabIndex = 32;
             this.label25.Text = "///";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -285,9 +283,9 @@
             // label26
             // 
             this.label26.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label26.Location = new System.Drawing.Point(432, 213);
+            this.label26.Location = new System.Drawing.Point(494, 270);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(120, 15);
+            this.label26.Size = new System.Drawing.Size(137, 19);
             this.label26.TabIndex = 33;
             this.label26.Text = "///";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -297,18 +295,18 @@
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(24, 330);
+            this.label6.Location = new System.Drawing.Point(27, 418);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(362, 20);
+            this.label6.Size = new System.Drawing.Size(413, 25);
             this.label6.TabIndex = 0;
             this.label6.Text = "Символические ссылки";
             // 
             // label27
             // 
             this.label27.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label27.Location = new System.Drawing.Point(432, 161);
+            this.label27.Location = new System.Drawing.Point(494, 204);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(120, 15);
+            this.label27.Size = new System.Drawing.Size(137, 19);
             this.label27.TabIndex = 34;
             this.label27.Text = "///";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -318,18 +316,18 @@
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(24, 266);
+            this.label5.Location = new System.Drawing.Point(27, 337);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(362, 20);
+            this.label5.Size = new System.Drawing.Size(413, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Чтение файлов";
             // 
             // label28
             // 
             this.label28.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label28.Location = new System.Drawing.Point(432, 103);
+            this.label28.Location = new System.Drawing.Point(494, 130);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(120, 15);
+            this.label28.Size = new System.Drawing.Size(137, 19);
             this.label28.TabIndex = 35;
             this.label28.Text = "192.168.0.1";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -337,9 +335,9 @@
             // label29
             // 
             this.label29.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label29.Location = new System.Drawing.Point(432, 45);
+            this.label29.Location = new System.Drawing.Point(494, 57);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(120, 15);
+            this.label29.Size = new System.Drawing.Size(137, 19);
             this.label29.TabIndex = 36;
             this.label29.Text = "///";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -349,9 +347,9 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(24, 213);
+            this.label4.Location = new System.Drawing.Point(27, 270);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(362, 20);
+            this.label4.Size = new System.Drawing.Size(413, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Врямя аутентификации";
             // 
@@ -360,9 +358,9 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(24, 160);
+            this.label3.Location = new System.Drawing.Point(27, 203);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(362, 20);
+            this.label3.Size = new System.Drawing.Size(413, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Количество одновременных подключений";
             // 
@@ -371,9 +369,9 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(24, 103);
+            this.label2.Location = new System.Drawing.Point(27, 130);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(362, 20);
+            this.label2.Size = new System.Drawing.Size(413, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Разрешенные IP-адреса";
             // 
@@ -382,9 +380,9 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(24, 40);
+            this.label1.Location = new System.Drawing.Point(27, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(362, 20);
+            this.label1.Size = new System.Drawing.Size(413, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Порт";
             // 
@@ -408,20 +406,20 @@
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.label20);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1046, 517);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1197, 658);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Изменить настройки";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(457, 448);
+            this.button1.Location = new System.Drawing.Point(490, 538);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 28);
+            this.button1.Size = new System.Drawing.Size(137, 35);
             this.button1.TabIndex = 20;
             this.button1.Text = "Применить";
             this.button1.UseVisualStyleBackColor = true;
@@ -430,72 +428,84 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox10.Location = new System.Drawing.Point(472, 330);
+            this.textBox10.Location = new System.Drawing.Point(539, 418);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(494, 23);
+            this.textBox10.Size = new System.Drawing.Size(564, 23);
             this.textBox10.TabIndex = 19;
             // 
             // textBox11
             // 
             this.textBox11.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox11.Location = new System.Drawing.Point(472, 287);
+            this.textBox11.Location = new System.Drawing.Point(539, 364);
+            this.textBox11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(494, 23);
+            this.textBox11.Size = new System.Drawing.Size(564, 23);
             this.textBox11.TabIndex = 17;
+            this.textBox11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox18_KeyPress);
             // 
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(472, 242);
+            this.textBox2.Location = new System.Drawing.Point(539, 307);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(494, 23);
+            this.textBox2.Size = new System.Drawing.Size(564, 23);
             this.textBox2.TabIndex = 13;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(472, 199);
+            this.textBox1.Location = new System.Drawing.Point(539, 252);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(494, 23);
+            this.textBox1.Size = new System.Drawing.Size(564, 23);
             this.textBox1.TabIndex = 13;
             // 
             // textBox15
             // 
             this.textBox15.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox15.Location = new System.Drawing.Point(472, 163);
+            this.textBox15.Location = new System.Drawing.Point(539, 206);
+            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(494, 23);
+            this.textBox15.Size = new System.Drawing.Size(564, 23);
             this.textBox15.TabIndex = 13;
+            this.textBox15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox18_KeyPress);
             // 
             // textBox16
             // 
             this.textBox16.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox16.Location = new System.Drawing.Point(472, 122);
+            this.textBox16.Location = new System.Drawing.Point(539, 155);
+            this.textBox16.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(494, 23);
+            this.textBox16.Size = new System.Drawing.Size(564, 23);
             this.textBox16.TabIndex = 12;
+            this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox18_KeyPress);
             // 
             // textBox17
             // 
             this.textBox17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox17.Location = new System.Drawing.Point(472, 81);
+            this.textBox17.Location = new System.Drawing.Point(539, 103);
+            this.textBox17.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(494, 23);
+            this.textBox17.Size = new System.Drawing.Size(564, 23);
             this.textBox17.TabIndex = 18;
             // 
             // textBox18
             // 
             this.textBox18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox18.Location = new System.Drawing.Point(472, 41);
+            this.textBox18.Location = new System.Drawing.Point(539, 52);
+            this.textBox18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(494, 23);
+            this.textBox18.Size = new System.Drawing.Size(564, 23);
             this.textBox18.TabIndex = 11;
+            this.textBox18.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox18_KeyPress);
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(33, 333);
+            this.label12.Location = new System.Drawing.Point(38, 422);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(185, 16);
             this.label12.TabIndex = 9;
@@ -505,7 +515,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(33, 290);
+            this.label13.Location = new System.Drawing.Point(38, 367);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(413, 16);
             this.label13.TabIndex = 8;
@@ -515,17 +525,17 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(33, 249);
+            this.label15.Location = new System.Drawing.Point(38, 315);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(167, 16);
+            this.label15.Size = new System.Drawing.Size(194, 16);
             this.label15.TabIndex = 6;
-            this.label15.Text = "Символические ссылки";
+            this.label15.Text = "Символические ссылки 1/0";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(33, 206);
+            this.label16.Location = new System.Drawing.Point(38, 261);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(111, 16);
             this.label16.TabIndex = 5;
@@ -535,7 +545,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(33, 165);
+            this.label17.Location = new System.Drawing.Point(38, 209);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(167, 16);
             this.label17.TabIndex = 4;
@@ -545,7 +555,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(33, 124);
+            this.label18.Location = new System.Drawing.Point(38, 157);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(292, 16);
             this.label18.TabIndex = 3;
@@ -555,7 +565,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(33, 83);
+            this.label19.Location = new System.Drawing.Point(38, 105);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(171, 16);
             this.label19.TabIndex = 10;
@@ -565,7 +575,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(33, 43);
+            this.label20.Location = new System.Drawing.Point(38, 54);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(39, 16);
             this.label20.TabIndex = 2;
@@ -573,13 +583,12 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1053, 543);
+            this.ClientSize = new System.Drawing.Size(1203, 688);
             this.Controls.Add(this.tabControl1);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройка безопасности БД";

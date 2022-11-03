@@ -209,6 +209,19 @@ namespace DB_Settings_Checker
             Ini_reader();
             conn.Close();
         }
+        public void num(KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if (!Char.IsDigit(number) && number != 8) // запретим вводить символы в поля принимающие числа
+            {
+                e.Handled = true;
+            }
+        }
+        private void textBox18_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            num(e);  
+        }
     }
 
     }
